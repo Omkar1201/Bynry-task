@@ -1,10 +1,7 @@
-// src/ProfileContext.js
 import React, { createContext, useState } from 'react';
 
-// Create Context
 export const ProfileContext = createContext();
 
-// Default profiles if localStorage is empty
 const defaultProfiles = [
   {
     id: 1,
@@ -78,24 +75,20 @@ const defaultProfiles = [
 
 export const ProfileProvider = ({ children }) => {
   const [profiles, setProfiles] = useState(defaultProfiles);
-
-  // const handleDelete = (id) => {
-  //   const updatedProfiles = profiles.filter(profile => profile.id !== id);
-  //   setProfiles(updatedProfiles);
-  //   localStorage.setItem('profiles', JSON.stringify(updatedProfiles)); // Update localStorage
-  // };
+  const [center, setCenter] = useState({ lat: 18.627631989986963, lng: 73.81697335021828 });
+  const [article,setarticle]=useState();
   const addProfile = (profileData) => {
     const newId = profiles.length > 0 ? Math.max(...profiles.map(profile => profile.id)) + 1 : 1;
     const newProfile = { id: newId, ...profileData };
     setProfiles([...profiles, newProfile]);
   };
-  const [center, setCenter] = useState({ lat: 18.627631989986963, lng: 73.81697335021828 });
 
   const contextValue = {
     profiles,
     setProfiles,
     addProfile,
-    center, setCenter
+    center, setCenter,
+    article,setarticle
   };
 
   return (

@@ -3,7 +3,7 @@ import { ProfileContext } from '../ProfileContext';
 import { Link, useNavigate } from 'react-router-dom';
 
 const ProfileList = () => {
-  const { profiles, setCenter } = useContext(ProfileContext);
+  const { profiles, setCenter ,setarticle} = useContext(ProfileContext);
   const [nameFilter, setNameFilter] = useState('');
   const [locationFilter, setLocationFilter] = useState('');
   const [otherFilter, setOtherFilter] = useState('');
@@ -63,7 +63,7 @@ const ProfileList = () => {
         {filteredProfiles.length > 0 ? (
           filteredProfiles.map(profile => (
             <div key={profile.id} className="profile-card bg-white rounded-lg shadow-lg p-4 border border-gray-300 transition-transform transform hover:scale-105" title="Show Details">
-              <Link to={`/profile/${profile.id}`} className="flex flex-col items-center">
+              <div onClick={()=>{setarticle(profile);navigate('/fulldetails')}} className="flex flex-col items-center">
                 <img
                   src={profile.photo ? profile.photo : 'path-to-placeholder-image.jpg'}
                   alt={profile.name}
@@ -74,7 +74,7 @@ const ProfileList = () => {
                   {profile.description.length > 100 ? `${profile.description.slice(0, 100)}...` : profile.description}
                 </p>
                 <p className="text-xs md:text-sm text-gray-500 text-center">{profile.address}</p>
-              </Link>
+              </div>
               {/* Summary Button */}
               <div className='flex justify-center'>
                 <button
