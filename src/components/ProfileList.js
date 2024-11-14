@@ -62,8 +62,8 @@ const ProfileList = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {filteredProfiles.length > 0 ? (
           filteredProfiles.map(profile => (
-            <div key={profile.id} className="profile-card cursor-pointer bg-white rounded-lg shadow-lg p-4 border border-gray-300 transition-transform transform hover:scale-105" title="Show Details">
-              <div onClick={()=>{setarticle(profile);navigate('/fulldetails')}} className="flex flex-col items-center">
+            <div key={profile.id} className="profile-card cursor-pointer bg-white rounded-lg shadow-lg border border-gray-300 transition-transform transform hover:scale-105" title="Show Details">
+              <div onClick={()=>{setarticle(profile);navigate('/fulldetails')}} className="flex p-4 pb-10 flex-col items-center">
                 <img
                   src={profile.photo ? profile.photo : 'path-to-placeholder-image.jpg'}
                   alt={profile.name}
@@ -76,7 +76,7 @@ const ProfileList = () => {
                 <p className="text-xs md:text-sm text-gray-500 text-center">{profile.address}</p>
               </div>
               {/* Summary Button */}
-              <div className='flex justify-center'>
+              <div className='flex justify-center absolute right-[37%] bottom-[0.2rem]'>
                 <button
                   onClick={(e) => handleSummaryClick(e, profile.latitude, profile.longitude)}
                   className="mt-2 bg-blue-500 text-white rounded-lg px-3 py-1 hover:bg-blue-600 transition"
