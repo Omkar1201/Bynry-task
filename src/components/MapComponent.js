@@ -23,7 +23,7 @@ const MapComponent = () => {
         })
     },[])
     return (
-        <div style={{ height: '100vh', width: '100%' }} className='p-4 pb-[4rem]'> {/* Ensure map takes full screen */}
+        <div style={{ height: '100vh', width: '100%' }} className='p-2 pb-[5rem]'> {/* Ensure map takes full screen */}
             <MapContainer center={center} zoom={ZOOM_LEVEL} style={{ height: '100%', width: '100%' }}>
                 <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
