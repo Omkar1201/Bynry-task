@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { ProfileContext } from '../ProfileContext';
 import { Link } from 'react-router-dom';
-
+import {toast} from 'react-toastify'
 const AdminPanel = () => {
   const { profiles, setProfiles } = useContext(ProfileContext);
   const [newProfile, setNewProfile] = useState({
@@ -47,6 +47,7 @@ const AdminPanel = () => {
       setProfiles(updatedProfiles);
       setEditingProfileId(null);
       setNewProfile({ name: '', photo: '', description: '', address: '', contact: '', interests: '', job: '' });
+      toast.success('Profile updated successfully!')
     }
   };
 
