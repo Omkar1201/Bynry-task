@@ -46,13 +46,13 @@ const AdminPanel = () => {
       );
       setProfiles(updatedProfiles);
       setEditingProfileId(null);
-      setNewProfile({ name: '', photo: '', description: '', address: '', contact: '', interests: '', projects: '' });
+      setNewProfile({ name: '', photo: '', description: '', address: '', contact: '', interests: '', job: '' });
     }
   };
 
   const handleCancelEdit = () => {
     setEditingProfileId(null);
-    setNewProfile({ name: '', photo: '', description: '', address: '', contact: '', interests: '', projects: '' });
+    setNewProfile({ name: '', photo: '', description: '', address: '', contact: '', interests: '', job: '' });
   };
 
   const handleDelete = (id) => {

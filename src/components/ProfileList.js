@@ -62,7 +62,7 @@ const ProfileList = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {filteredProfiles.length > 0 ? (
           filteredProfiles.map(profile => (
-            <div key={profile.id} className="profile-card bg-white rounded-lg shadow-lg p-4 border border-gray-300 transition-transform transform hover:scale-105" title="Show Details">
+            <div key={profile.id} className="profile-card cursor-pointer bg-white rounded-lg shadow-lg p-4 border border-gray-300 transition-transform transform hover:scale-105" title="Show Details">
               <div onClick={()=>{setarticle(profile);navigate('/fulldetails')}} className="flex flex-col items-center">
                 <img
                   src={profile.photo ? profile.photo : 'path-to-placeholder-image.jpg'}
